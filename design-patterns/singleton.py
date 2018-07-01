@@ -55,7 +55,31 @@ class Singleton(object):
             self._instance = self._klass(*args, **kwargs)
         return self._instance
 
+from functools import wraps
+
+def singleton(klass):
+
+    'A parte ruim de utilizar um decorator para criar uma classe Singleton é a parte da documentação'
+    
+    _instance = None
+    
+    @wraps(klass)
+    def wrapper(*args, **kwargs):
+        if _instance is None:
+            _instance = klass(*args, **kwargs)
+        return _instance
+    return wrapper
 
 
-            
+def singleton(klass):
+
+    'Dessa forma retorno a própria classe ou seja a mesma não perde sua documentçao a não ser o método __new__'
+
+    def _new(cls, *args, **kwargs):
+        if not hasattr(cls, '_instance'):
+            cls._instance = super(klass, cls).__new__(klass) # Passei klass, cls explicitamente
+        return cls._instance
+
+    klass.__new__ = _new
+    return klass
 
