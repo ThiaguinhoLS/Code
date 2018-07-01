@@ -17,6 +17,5 @@ class FileOpener(object):
         self.file.close()
         
 
-
 with FileOpener('file.txt') as f:
     f.write('Primeira linha\n')
