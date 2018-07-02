@@ -16,5 +16,3 @@ def change_path(path):
     os.chdir(path)
     yield
     os.chdir(actual)
-
-
