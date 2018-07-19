@@ -27,8 +27,12 @@ class UserForm(forms.Form):
 
 		password1 = self.cleaned_data['password1']
 		password2 = self.cleaned_data['password2']
-		if password1 and password2 and password1 != password2:
-			raise forms.ValidationError('Senhas diferentes')
+		if password1 and password2:
+			if password1 != password2:
+				raise forms.ValidationError('Senhas diferentes')
+			else:
+				if len(password1) < 8:
+					raise forms.ValidationError('Senha muito curta')
 		return password2
 
 	def clean_email(self):
