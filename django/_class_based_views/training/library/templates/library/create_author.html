@@ -1,0 +1,10 @@
+{% extends "library/base.html" %}
+
+{% block title %}Criar autor{% endblock %}
+
+{% block content %}
+	<form action="{% url 'library:create_author' %}" method="post" novalidate>{% csrf_token %}
+		{% include 'includes/form.html' %}
+		<button type="submit">Criar autor</button>
+	</form>
+{% endblock %}

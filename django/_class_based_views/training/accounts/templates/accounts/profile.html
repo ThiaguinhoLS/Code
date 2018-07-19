@@ -1,0 +1,9 @@
+{% extends "library/base.html" %}
+
+{% block title %}Perfil {{ user.username }}{% endblock %}
+
+{% block content %}
+	Nome: {{ user.username }}
+	Data de nascimento: {{ user.profile.date_birth }}
+	Idade: {{ user.profile.age }}
+{% endblock %}

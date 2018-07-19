@@ -1,0 +1,11 @@
+{% extends "library/base.html" %}
+
+{% block title %}Criar conta{% endblock %}
+
+{% block content %}
+	<form action="{% url 'accounts:create_account' %}" method="post" novalidate>{% csrf_token %}
+		{% include 'includes/form.html' %}
+		<button type="submit">Criar conta</button>
+	</form>
+{% endblock %}
+

@@ -1,0 +1,10 @@
+{% extends "library/base.html" %}
+
+{% block title %}Criar livro{% endblock %}
+
+{% block content %}
+	<form action="{% url 'library:create_book' %}" method="post" novalidate>{% csrf_token %}
+		{% include 'includes/form.html' %}
+		<button type="submit">Criar livro</button>
+	</form>
+{% endblock %}

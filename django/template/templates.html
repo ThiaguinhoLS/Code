@@ -1,0 +1,67 @@
+# base.html
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link  rel="stylesheet" href="style.css" />
+    <title>{% block title %}My amazing site{% endblock %}</title>
+</head>
+<body>
+    <div id="sidebar">
+        {% block sidebar %}
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog/">Blog</a></li>
+            </ul>
+        {% endblock %}
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
+
+
+{% extends "base.html" %}
+
+{% block title %}My amazing blog{% endblock %}
+
+{% block content %}
+    {% for entry in bog_entries %}
+        <h2>{{ entry.title }}</h2>
+        <p>{{ entry.body }}</p>
+    {% endfor %}
+{% endblock %}
+
+
+{{ block.super }} Chama o conteúdo do modelo base, é utilizado quando queremos adicionar conteúdo ao modelo base mas recuperar seu
+conteúdo inicial.
+
+
+{% csrf_token %} Utilizada para proteção de CSRF.
+
+
+{% comment 'Anotação opcional' %} Comentários de várias linhas. Para comentar uma única linha utilize {# ... #}
+    <p>Texto comentado</p>
+{% endcomment %}
+
+
+{% if value %}
+    <p>Valor válido</p>
+{% elif other_value %}
+    <p>Outro valor válido</p>
+{% else %}
+    <p>Nenhum valor válido</p>
+{% endif %}
+
+
+{% for article in articles %} Utilize {% for article in articles reversed %} para percorrer a lista ao contrário
+    <h1>{{ article.name }}</h1>
+    <p>{{ article.body }}</p>
+{% empty %}
+    <p>Nenhum artigo no site</p>
+{% endfor %}
+
+
+{% firstof var1 var2 var3 %} Gera a primeira variável do argumento que não é False. Não produz nada se todas as variáveis forem False
+{% firstof var1 var2 var3 'fallback value' %} Caso todas sejam False retorna a string literal 

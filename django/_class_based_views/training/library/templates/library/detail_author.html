@@ -1,0 +1,9 @@
+{% extends "library/base.html" %}
+
+{% block title %}{{ author }}{% endblock %}
+
+{% block content %}
+	<p>Nome: <i>{{ author }}</i></p>
+	<p>Idade: {{ author.age }}</p>
+	<a href="{% url 'library:update_author' author.pk %}"><button>Editar</button></a>
+{% endblock %}

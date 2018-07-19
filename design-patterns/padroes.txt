@@ -1,0 +1,31 @@
+
+Padrões de Criação
+  Abstract Factory	Cria uma instância de várias famílias das classes
+  Builder	        Separa a construção do objeto de sua representação
+  Factory Method	Cria uma instância de várias classes derivadas
+  Prototype	        Um exemplo totalmente inicializado a ser copiado ou clonado
+  Singleton	        Uma classe de que apenas uma única instância pode existir
+ 
+
+Padrões de Estruturação
+  Adapter	  Adapta interfaces de diferentes classes
+  Bridge	  Separa interface de um objeto a partir de sua implementação
+  Composite	  A estrutura da árvore de objetos simples e compostas
+  Decorator	  Adicionar responsabilidades a objetos dinamicamente
+  Facade	  A única classe que representa um subsistema
+  Flyweight	  Um exemplo de baixo nível usado para o compartilhamento eficiente
+  Proxy	          Um objeto que representa outro objeto
+ 
+
+  Padrões Comportamentais
+  Chain of Resp.	Uma maneira de passar uma requisição entre uma cadeia de objetos
+  Command	        Encapsula uma solicitação de comando como um objeto
+  Interpreter	        Uma maneira de incluir elementos de linguagem em um programa
+  Iterator	        Sequencialmente acessar os elementos de uma coleção
+  Mediator	        Define comunicação simplificada entre classes
+  Memento	        Captura e restaura o estado interno de um objeto
+  Observer	        Uma maneira de notificar a mudança para um número de classes
+  State	                Altera o comportamento de um objeto quando seu estado se altera
+  Strategy	        Encapsula um algoritmo dentro de uma classe
+  Template Method	Adia as etapas exatas de um algoritmo para uma subclasse
+  Visitor	        Define uma nova operação para uma classe sem alteração

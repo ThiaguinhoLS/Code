@@ -1,0 +1,10 @@
+{% extends 'library/base.html' %}
+
+{% block title %}Editar {{ book }}{% endblock %}
+
+{% block content %}
+	<form action="{% url 'library:update_book' book.pk %}" method="post" novalidate>{% csrf_token %}
+		{% include 'includes/form.html' %}
+		<button type="submit">Salvar edições</button>
+	</form>
+{% endblock %}
