@@ -5,5 +5,9 @@
 {% block content %}
 	<p>Nome: <i>{{ author }}</i></p>
 	<p>Idade: {{ author.age }}</p>
+	<p>Livros: </p>
+	{% for book in author.books.all %}
+		<a href="{% url 'library:detail_book' book.pk %}">{{ book }}</a><br/>
+	{% endfor %}
 	<a href="{% url 'library:update_author' author.pk %}"><button>Editar</button></a>
 {% endblock %}

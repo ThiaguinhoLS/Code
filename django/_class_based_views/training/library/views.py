@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import View, CreateView, DetailView, UpdateView
+from django.views.generic import View, CreateView, DetailView, UpdateView, ListView
 from .forms import AuthorModelForm, BookModelForm, AuthorForm, BookForm
 from .models import Author, Book
 from django.contrib import messages
@@ -85,6 +85,12 @@ class BookUpdateView(UpdateView):
 	def form_valid(self, form):
 		messages.success(self.request, 'Editado com sucesso')
 		return super(BookUpdateView, self).form_valid(form)
+
+
+class ListAuthors(ListView):
+
+	template_name = 'library/list_authors.html'
+	model = Author
 
 
 # function-based views

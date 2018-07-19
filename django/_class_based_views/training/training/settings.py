@@ -150,6 +150,16 @@ if DEBUG:
         'INTERCEPT_REDIRECTS': False,
     }
 
+# Configurações de envio de email
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'example@email.com'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'me@gmail.com'
+EMAIL_HOST_PASSWORD = 'password'
+
 try:
     from .local_settings import *
 except ImportError:

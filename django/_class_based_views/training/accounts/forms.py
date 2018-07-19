@@ -55,5 +55,3 @@ class UserForm(forms.Form):
 		if commit:
 			user.save()
 		return user
-
-
